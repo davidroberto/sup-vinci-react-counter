@@ -1,15 +1,17 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Pokemons = () => {
   const [pokemons, setPokemons] = useState(null);
 
-  fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
-    .then((response) => {
-      return response.json();
-    })
-    .then((responsePokemons) => {
-      setPokemons(responsePokemons);
-    });
+  useEffect(() => {
+    fetch("https://pokebuildapi.fr/api/v1/pokemon/limit/100")
+      .then((response) => {
+        return response.json();
+      })
+      .then((responsePokemons) => {
+        setPokemons(responsePokemons);
+      });
+  }, []);
 
   return (
     <section>
