@@ -1,17 +1,17 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import Counter from "./Counter";
-import Faq from "./Faq";
-import Footer from "./Footer";
-import Header from "./Header";
-import LastProducts from "./LastProducts";
-import OpeningHours from "./OpeningHours";
-import Pokemons from "./Pokemons";
+
+import CounterPage from "./page/CounterPage";
+import PokemonsPage from "./page/PokemonPage";
 
 const App = () => {
   return (
-    <>
-      <Pokemons />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<CounterPage />} />
+        <Route path="/pokemons" element={<PokemonsPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
